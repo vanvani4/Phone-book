@@ -1,0 +1,21 @@
+<form [formGroup]="searchForm" novalidate>
+
+  <div style="text-align:center">
+    <input formControlName="search" type="text" (keyup)="search(searchForm)">
+  </div>
+
+</form>
+
+<div style="text-align:center">
+  <button (click)="add()">Add new person</button>
+</div>
+
+<router-outlet></router-outlet>
+
+<div *ngIf="show">
+  <app-person-list></app-person-list>
+</div>
+
+<div *ngIf="!show">
+  <app-found-list [ser]="ser"></app-found-list>
+</div>

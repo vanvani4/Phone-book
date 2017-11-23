@@ -1,0 +1,19 @@
+<form [formGroup]="addForm" novalidate>
+
+  <div style="text-align:center">
+    <div style="text-align:center">
+      <input formControlName="name" type="text" placeholder="name">
+    </div>
+
+    <div style="text-align:center">
+      <input formControlName="phone" type="text" placeholder="phone">
+    </div>
+
+    <div style="text-align:center">
+      <input formControlName="photo" type="file">
+    </div>
+
+    <button (click)='back()'>Back</button>
+  </div>
+
+</form>
