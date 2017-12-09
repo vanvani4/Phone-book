@@ -1,11 +1,11 @@
 <div>
   <p>{{text}}</p>
   <ul *ngFor="let item of foundPerson">
-    <li>{{ item.name }} - phone: {{item.phone}}</li>
+    <li>{{ item.name }} - phone: {{item.phone}}
+      <img src='http://localhost:3000/{{item.id}}.JPG'>
+    </li>
   </ul>
 </div>
-
-<!-- <p>Input {{ser}}</p> -->
 
 
 

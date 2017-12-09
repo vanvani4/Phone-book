@@ -1,19 +1,23 @@
-<form [formGroup]="addForm" novalidate>
+<div style="text-align:center">
+  <form [formGroup]="addForm" novalidate (ngSubmit)="add(addForm)">
 
-  <div style="text-align:center">
     <div style="text-align:center">
+      <label for="name">Person name</label>
       <input formControlName="name" type="text" placeholder="name">
     </div>
 
     <div style="text-align:center">
+      <label for="phone">Phone</label>
       <input formControlName="phone" type="text" placeholder="phone">
     </div>
 
     <div style="text-align:center">
-      <input formControlName="photo" type="file">
+      <label for="photo">Photo</label>
+      <input formControlName="photo" type="file" #photo>
     </div>
 
-    <button (click)='back()'>Back</button>
-  </div>
+    <button>Add</button>
 
-</form>
+  </form>
+  <button (click)='back()'>Back</button>
+</div>

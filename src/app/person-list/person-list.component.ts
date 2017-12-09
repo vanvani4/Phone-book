@@ -1,10 +1,11 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ServerService } from '../server-service/server.service';
 import { Person } from '../person/person';
 import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { log } from 'util';
 
 @Component({
   selector: 'app-person-list',
@@ -17,7 +18,8 @@ export class PersonListComponent implements OnInit {
 
   allListPerson: Person[];
 
-  constructor(private server: ServerService) {}
+  constructor(private server: ServerService) {
+  }
 
   ngOnInit() {
     this.server.getAllPerson() 
