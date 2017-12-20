@@ -1,5 +1,5 @@
 <div>
-  <ul *ngFor="let item of allListPerson">
+  <ul *ngFor="let item of allListPerson" (click)="goToAbout(item)">
     <li>{{ item.name }} - phone: {{item.phone}} 
         <img src='http://localhost:3000/{{item.id}}.JPG'>
     </li>

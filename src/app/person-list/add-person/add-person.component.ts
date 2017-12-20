@@ -15,7 +15,11 @@ export class AddPersonComponent implements OnInit {
   photo: File;
   @ViewChild('photo') personPhoto;
 
-  constructor(private fb: FormBuilder, private server: ServerService, private router: Router, private activedRoute: ActivatedRoute) { };
+  constructor(
+    private fb: FormBuilder, 
+    private server: ServerService, 
+    private router: Router, 
+    private activedRoute: ActivatedRoute) { };
 
   ngOnInit() {
     this.addForm = this.fb.group({
