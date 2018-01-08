@@ -1,4 +1,41 @@
-<div style="text-align:center">
+<div class="container">
+  <form class="form" [formGroup]="addForm" novalidate (ngSubmit)="add(addForm)">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="name">
+          <input class="form__input" formControlName="name" type="text" placeholder="name">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="phone">
+          <input class="form__input" formControlName="phone" type="text" placeholder="phone">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="photo">
+          <input class="form__input" formControlName="photo" type="file" #photo>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+          <button class="btn btn-primary">Add</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+
+<!-- <div style="text-align:center">
   <form [formGroup]="addForm" novalidate (ngSubmit)="add(addForm)">
 
     <div style="text-align:center">
@@ -20,4 +57,4 @@
 
   </form>
   <button (click)='back()'>Back</button>
-</div>
+</div> -->

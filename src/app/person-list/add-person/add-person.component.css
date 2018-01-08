@@ -1,0 +1,19 @@
+.form {
+    text-align: center;
+}
+
+.form__input {
+    background-color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 80%;
+    padding: 10px 0;
+    margin-right: 10px;
+    cursor: pointer;
+    padding-left: 20px;
+    outline: none;
+}
+
+.btn {
+    width: 80%;
+}

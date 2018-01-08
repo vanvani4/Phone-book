@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 import { User } from './user';
+import { log } from 'util';
 
 @Component({
   selector: 'app-login',
@@ -60,21 +61,16 @@ export class LoginComponent implements OnInit {
 
   log(loginForm) {
     this.message = 'Wait please'; // пока не вернулся ответ, показываем сообщение.
-
-    const formData: FormData = new FormData();
-    formData.append('name', loginForm.value.login);
-    formData.append('phone', loginForm.value.password);
-
-    this.authService.login(formData)
-      .subscribe((res) => {
-        this.router.navigate([this.authService.redirectUrl]); // если валидация прошла, указываем куда перейти (куда собирались)
+    this.authService.login(this.loginForm.value.login, this.loginForm.value.password)
+      .subscribe(res => {
+        this.router.navigate(['']); // если валидация прошла, указываем куда перейти (куда собирались)
         this.message = '';
       });
   }
 
-  // logOut() {
-  //   this.authService.logout(); // в реальной жизни отсылаем запрос на сервер, который анулирует сессию.
-  // }
+  logOut() {
+    this.authService.logout(); // в реальной жизни отсылаем запрос на сервер, который анулирует сессию.
+  }
 
 }
 

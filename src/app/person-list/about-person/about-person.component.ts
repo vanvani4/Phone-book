@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Http, Response, RequestOptions } from '@angular/http';
+import { Router, ActivatedRoute } from '@angular/router'
 
 import { ServerService } from '../../server-service/server.service';
 import { Person } from '../../person/person';
@@ -18,11 +18,13 @@ export class AboutPersonComponent implements OnInit {
   activePerson;
   //activePersonId: number;
 
-  constructor(private server: ServerService, private route: ActivatedRoute) { }
+  constructor(private server: ServerService, 
+    private router: Router, 
+    private activedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activePerson = this.server.getActivePerson();
-    console.log('about', this.activePerson);
+    // console.log('about', this.activePerson);
     
     // let arr: Person[];
     // this.route.params.subscribe(params => {
@@ -41,6 +43,10 @@ export class AboutPersonComponent implements OnInit {
     //       }
     //   });
     // });
+  }
+
+  back(){
+    this.router.navigate([''], { relativeTo: this.activedRoute });
   }
 
 }

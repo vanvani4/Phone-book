@@ -33,14 +33,14 @@ import { AuthService } from './guard/auth.service';
     HttpModule,
     RoutingModule,
     HttpClientModule,
-    JwtModule.forRoot({
+    /*JwtModule.forRoot({
       config: {
         tokenGetter: () => {
           return localStorage.getItem('auth_token');
         },
         whitelistedDomains: ['http://localhost:3000']
       }
-    }),
+    }),*/
   ],
   providers: [ServerService, AuthService],
   bootstrap: [AppComponent]

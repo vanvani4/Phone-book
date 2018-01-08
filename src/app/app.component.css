@@ -1,0 +1,11 @@
+.title {
+    font-family: 'Lobster', cursive;
+    padding-top: 20px;
+    text-align: center;
+    color: yellow;
+    margin-bottom: 30px;
+}
+
+.log_out {
+    margin-top: 10px;
+}

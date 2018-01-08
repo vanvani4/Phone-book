@@ -2,16 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router'
 
-import { ServerService } from './server-service/server.service';
+import { AuthService } from './guard/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [ServerService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  constructor(private auth: AuthService){}
 
   ngOnInit() {  }
+
+  logOut() {
+    this.auth.logout();
+  }
 
 }

@@ -6,34 +6,40 @@ import { HttpClient } from '@angular/common/http';
 
 
 @Injectable()
-export class AuthService {
+export class AuthService { 
     loggedIn: boolean = false;
-    redirectUrl = ''; // сюда записываем путь страницы куда мы собирались (admin), куда мы перейдём в случае удачной авторизации.
+    redirectUrl = 'login'; // сюда записываем путь страницы куда мы собирались (admin), куда мы перейдём в случае удачной авторизации.
 
-    constructor(private http: HttpClient) {
-        this.loggedIn = !!localStorage.getItem('auth_token');
+    constructor(private http: HttpClient, ) {
+        //this.loggedIn = !!localStorage.getItem('auth_token');
     }
 
 
-    login(formData) {
+    login(login, pass) {
         return this.http
-            .post('http://localhost:3000/login', formData)
-            .map((res: any) => {
-                if (res.success) {
-                    localStorage.setItem('auth_token', res.auth_token);
+            .post('http://localhost:3000/login', {login, pass})
+            .map((res: any) => {                
+                if (res === 1) {
                     this.loggedIn = true;
+                    return this.loggedIn;
                 }
+            })
+            // .map((res: any) => {
+            //     if (res.success) {
+            //         localStorage.setItem('auth_token', res.auth_token);
+            //         this.loggedIn = true;
+            //     }
 
-                return res.success;
-            });
+            //     return res.success;
+            // });
     }
 
     logout() {
-        localStorage.removeItem('auth_token');
+        //localStorage.removeItem('auth_token');
         this.loggedIn = false;
     }
 
-    isLoggedIn() {
-        return this.loggedIn;
-    }
+    // isLoggedIn() {
+    //     return this.loggedIn;
+    // }
 }
