@@ -1,33 +1,47 @@
-<!-- <div *ngIf="!message && !authService.isLoggedIn"> -->
-  
-    <form [formGroup]="loginForm" novalidate (ngSubmit)="log(loginForm)">
-      <div>
-        <label for="login">Login</label>
-        <input formControlName="login" type="text" id="login">
+<div class="container">
+  <form class="form" [formGroup]="loginForm" novalidate (ngSubmit)="log(loginForm)">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <input formControlName="login" type="text" id="login" placeholder="User name">
       </div>
-  
-      <div *ngIf="formErrors.login" class="alert">
-        {{formErrors.login}}
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <input formControlName="password" type="password" id="password" placeholder="Password">
       </div>
-  
-      <div>
-        <label for="password">Password</label>
-        <input formControlName="password" type="password" id="password">
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <button class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
       </div>
-  
-      <div *ngIf="formErrors.password" class="alert">
-        {{formErrors.password}}
-      </div>
-  
-      <button [disabled]="loginForm.invalid">Login</button>
-  
-    </form>
-  
-  
-  <!-- </div> -->
-  
-  <!-- <div *ngIf="message">
-    {{message}}
-  </div> -->
-  
-  <button *ngIf='authService.isLoggedIn' (click)="logOut()">Log out</button>
+    </div>
+    
+  </form>
+</div>
+
+
+<!-- <form [formGroup]="loginForm" novalidate (ngSubmit)="log(loginForm)">
+  <div>
+    <label for="login">Login</label>
+    <input formControlName="login" type="text" id="login">
+  </div>
+
+  <div *ngIf="formErrors.login" class="alert">
+    {{formErrors.login}}
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input formControlName="password" type="password" id="password">
+  </div>
+
+  <div *ngIf="formErrors.password" class="alert">
+    {{formErrors.password}}
+  </div>
+
+  <button [disabled]="loginForm.invalid">Login</button>
+
+</form> -->
