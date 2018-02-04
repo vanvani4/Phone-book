@@ -3,7 +3,7 @@ const app = express();
 // const bodyParser = require('body-parser');
 const multer = require('multer');//
 const router = express.Router();//
-var gm = require('gm').subClass({imageMagick: true});
+// var gm = require('gm').subClass({imageMagick: true});
 // const path = require('path');
 
 // app.use(express.static('dist')); // new
