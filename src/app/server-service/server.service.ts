@@ -17,7 +17,7 @@ export class ServerService {
   }
 
   getAllPerson() {
-    return this.http.get('http://localhost:8080/api');
+    return this.http.get('https://localhost:8080/api');
   }
 
   getFoundPerson() {
