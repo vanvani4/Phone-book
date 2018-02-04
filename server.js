@@ -16,11 +16,7 @@ app.use('/api', api);
 // app.use('/photo', photo);
 
 app.get('/*', (req, res) => {
-  if(req.headers['x-forwarded-proto'] !='https') {
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
-  } else {
-    next();
-  }
+  res.sendFile(path.join(__dirname + '/dist/index.html'));//
 });
 
 const port = process.env.PORT || '8080';//
