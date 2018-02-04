@@ -13,7 +13,13 @@ app.use(bodyParser.urlencoded({extended: false}));//
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, '/server/photo_person')));
 app.use('/api', api);
-// app.use('/photo', photo);
+app.use(function (req, res, next) {
+  if (req.header('x-forwqrded-proto') == 'http') {
+    res.redirect(301, 'https://' + req.url)
+    return
+  }
+  next()
+});
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname + '/dist/index.html'));//
