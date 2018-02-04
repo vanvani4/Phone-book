@@ -13,11 +13,11 @@ export class ServerService {
   }
 
   searchPerson(value) {
-    foundPerson = this.http.put('http://localhost:3000', { value });
+    foundPerson = this.http.put('http://localhost:8080/api', { value });
   }
 
   getAllPerson() {
-    return this.http.get('http://localhost:3000');
+    return this.http.get('http://localhost:8080/api');
   }
 
   getFoundPerson() {
@@ -25,7 +25,7 @@ export class ServerService {
   }
 
   addPerson(formGroup) {
-    return this.http.post('http://localhost:3000/add',  formGroup)
+    return this.http.post('http://localhost:8080/api/add',  formGroup)
     .map(res => res.json())
   }
 

@@ -5,10 +5,11 @@ import { Http, Response, RequestOptions } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 
 
+
 @Injectable()
 export class AuthService { 
     loggedIn: boolean = false;
-    redirectUrl = 'login'; // сюда записываем путь страницы куда мы собирались (admin), куда мы перейдём в случае удачной авторизации.
+    redirectUrl = 'api/login'; // сюда записываем путь страницы куда мы собирались (admin), куда мы перейдём в случае удачной авторизации.
 
     constructor(private http: HttpClient, ) {
         //this.loggedIn = !!localStorage.getItem('auth_token');
@@ -17,7 +18,7 @@ export class AuthService {
 
     login(login, pass) {
         return this.http
-            .post('http://localhost:3000/login', {login, pass})
+            .post('http://localhost:8080/api/login', {login, pass})
             .map((res: any) => {                
                 if (res === 1) {
                     this.loggedIn = true;

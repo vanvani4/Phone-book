@@ -10,12 +10,15 @@ import { AuthService } from './guard/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private auth: AuthService){}
+  constructor(private auth: AuthService,
+    private router: Router,
+    private activedRoute: ActivatedRoute) { }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
   logOut() {
     this.auth.logout();
+    this.router.navigate(['api/login'], { relativeTo: this.activedRoute });
   }
 
 }

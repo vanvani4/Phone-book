@@ -9,10 +9,11 @@ import { AuthGuard } from './guard/auth-guard.service';
 import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
-{path: '', component: SearchPersonComponent, pathMatch: 'full', canActivate: [AuthGuard]},
-    {path: 'login', component: LoginComponent, pathMatch: 'full'},
-    {path: 'add', component: AddPersonComponent, pathMatch: 'full', canActivate: [AuthGuard]},
-    {path: ':id', component: AboutPersonComponent, pathMatch: 'full', canActivate: [AuthGuard]}
+    {path: '', redirectTo: 'api', pathMatch: 'full', canActivate: [AuthGuard]},
+    {path: 'api', component: SearchPersonComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+    {path: 'api/login', component: LoginComponent, pathMatch: 'full'},
+    {path: 'api/add', component: AddPersonComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+    {path: 'api/:id', component: AboutPersonComponent, pathMatch: 'full', canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -38,7 +38,7 @@ import { AuthService } from './guard/auth.service';
         tokenGetter: () => {
           return localStorage.getItem('auth_token');
         },
-        whitelistedDomains: ['http://localhost:3000']
+        whitelistedDomains: ['http://localhost:8080']
       }
     }),*/
   ],

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../guard/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 import { User } from './user';
@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private activedRoute: ActivatedRoute) { }
 
   message: string;
 
@@ -60,17 +61,12 @@ export class LoginComponent implements OnInit {
   }
 
   log(loginForm) {
-    this.message = 'Wait please'; // пока не вернулся ответ, показываем сообщение.
+    // this.message = 'Wait please'; // пока не вернулся ответ, показываем сообщение.
     this.authService.login(this.loginForm.value.login, this.loginForm.value.password)
       .subscribe(res => {
         this.router.navigate(['']); // если валидация прошла, указываем куда перейти (куда собирались)
-        this.message = '';
+        // this.message = '';
       });
   }
-
-  logOut() {
-    this.authService.logout(); // в реальной жизни отсылаем запрос на сервер, который анулирует сессию.
-  }
-
 }
 
