@@ -18,7 +18,7 @@ export class AuthService {
 
     login(login, pass) {
         return this.http
-            .post('http://localhost:8080/api/login', {login, pass})
+            .post('https://myphbk.herokuapp.com:443/api/login', {login, pass})
             .map((res: any) => {                
                 if (res === 1) {
                     this.loggedIn = true;

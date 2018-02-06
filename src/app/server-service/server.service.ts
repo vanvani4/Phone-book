@@ -13,7 +13,7 @@ export class ServerService {
   }
 
   searchPerson(value) {
-    foundPerson = this.http.put('http://localhost:8080/api', { value });
+    foundPerson = this.http.put('https://myphbk.herokuapp.com:443/api', { value });
   }
 
   getAllPerson() {
@@ -25,7 +25,7 @@ export class ServerService {
   }
 
   addPerson(formGroup) {
-    return this.http.post('http://localhost:8080/api/add',  formGroup)
+    return this.http.post('https://myphbk.herokuapp.com:443/api/add',  formGroup)
     .map(res => res.json())
   }
 
