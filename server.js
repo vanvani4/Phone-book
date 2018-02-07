@@ -11,7 +11,7 @@ app.use(bodyParser.json());//
 app.use(bodyParser.urlencoded({extended: false}));//
 
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static(path.join(__dirname, '/server/photo_person')));
+app.use(express.static(path.join(__dirname, '/server/routes/photo_person')));
 app.use('/api', api);
 app.use(function (req, res, next) {
   if (req.header('x-forwqrded-proto') == 'http') {
