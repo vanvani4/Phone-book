@@ -14,10 +14,10 @@ var person = [
   {name: 'Oleg', phone: 123456, birthday: '15 November 2010', id: 1},
   {name: 'Osip', phone: 654321, birthday: '23 April 1943', id: 2},
   {name: 'Oleg', phone: 123654, birthday: '1 January 2000', id: 3},
-  {name: 'Dmitrii', phone: 865758, birthday: '16 May 1985', id: 4}
+  {name: 'Dmitrii', phone: 865758, birthday: '16 May 1985', id: 5}
 ];
 
-var count = 5;
+var count = 6;
 loggedIn = false;
 
 router.get('/', function (req, res) {
