@@ -65,6 +65,8 @@ router.post('/add', upload.single('photo'), function(req, res, next) {
   console.log('POST ADD!');
   person.push({name: req.body.name, phone: req.body.phone, id: count});
   count++;
+  console.log('storage', storage);
+  console.log('dirname', __dirname);
 //   cloudinary.uploader.upload(req.file.path, function(result) {
 //     person.push({name: req.body.name, phone: req.body.phone, photo: result.url});
 // });
