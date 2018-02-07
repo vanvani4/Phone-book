@@ -53,10 +53,10 @@ router.put('/', function (req, res) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '/app/server/photo_person');
+    cb(null, '/app/server/photo_person');П
   },
   filename: function (req, file, cb) {
-    cb(null, count + '.jpg');
+    cb(null, count + '.JPG');
   }
 });
 
@@ -67,9 +67,9 @@ router.post('/add', upload.single('photo'), function(req, res, next) {
   person.push({name: req.body.name, phone: req.body.phone, id: count});
   count++;
   //console.log('storage', storage.getDestination());
-  console.log('dirname 1', __dirname + '/..//photo_person');
-  console.log('dirname 3', __dirname);
-  console.log('dirname 4', __dirname + '../');
+  // console.log('dirname 1', __dirname + '/..//photo_person');
+  // console.log('dirname 3', __dirname);
+  // console.log('dirname 4', __dirname + '../');
 //   cloudinary.uploader.upload(req.file.path, function(result) {
 //     person.push({name: req.body.name, phone: req.body.phone, photo: result.url});
 // });
