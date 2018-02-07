@@ -53,7 +53,7 @@ router.put('/', function (req, res) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, __dirname + '/photo_person');
+    cb(null, '/app/server/photo_person');
   },
   filename: function (req, file, cb) {
     cb(null, count + '.jpg');
