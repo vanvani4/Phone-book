@@ -68,7 +68,6 @@ router.post('/add', upload.single('photo'), function(req, res, next) {
   count++;
   //console.log('storage', storage.getDestination());
   console.log('dirname 1', __dirname + '/..//photo_person');
-  console.log('dirname 2', __dirname/photo_person);
   console.log('dirname 3', __dirname);
   console.log('dirname 4', __dirname + '../');
 //   cloudinary.uploader.upload(req.file.path, function(result) {
