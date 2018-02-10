@@ -3,6 +3,7 @@ import { ServerService } from '../../server-service/server.service';
 import { Person } from '../../person/person';
 import { Http, Response, RequestOptions } from '@angular/http';
 import { FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -19,7 +20,7 @@ export class FoundListComponent implements OnInit, OnChanges {
   foundPerson: Person[];
 
 
-  constructor(private server: ServerService) { 
+  constructor(private server: ServerService, private router: Router, private activedRoute: ActivatedRoute) { 
    }
 
   ngOnInit() { }
@@ -31,4 +32,9 @@ export class FoundListComponent implements OnInit, OnChanges {
       this.foundPerson = data;
     });
    }
+
+   goToAbout(item) {
+    this.server.activePerson(item);
+    this.router.navigate([item.id], { relativeTo: this.activedRoute });
+  }
 }
