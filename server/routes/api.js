@@ -1,14 +1,8 @@
-var express = require('express');//
+var express = require('express');
 const app = express();
-// const bodyParser = require('body-parser');
-const multer = require('multer');//
-const router = express.Router();//
-// var gm = require('gm').subClass({imageMagick: true});
-// const path = require('path');
 
-// app.use(express.static('dist')); // new
-// app.use(express.static(__dirname)); // new
-// app.use(express.static(path.join(__dirname, 'photo_person')));
+const multer = require('multer');
+const router = express.Router();
 
 var person = [
   {name: 'Oleg', phone: 123456, birthday: '15 November 2010', id: 1},
@@ -38,7 +32,6 @@ router.put('/', function (req, res) {
   } else {
     person.forEach(function(item, i, prod) {
       let phone = item.phone.toString()
-      //console.log(item.phone.toString(), +req.body.value);
       if(phone.indexOf(req.body.value) === 0) {
         foundArr.push(item);
       };
@@ -66,14 +59,6 @@ router.post('/add', upload.single('photo'), function(req, res, next) {
   console.log('POST ADD!');
   person.push({name: req.body.name, phone: req.body.phone, id: count});
   count++;
-  //console.log('storage', storage.getDestination());
-  // console.log('dirname 1', __dirname + '/..//photo_person');
-  // console.log('dirname 3', __dirname);
-  // console.log('dirname 4', __dirname + '../');
-//   cloudinary.uploader.upload(req.file.path, function(result) {
-//     person.push({name: req.body.name, phone: req.body.phone, photo: result.url});
-// });
-//console.log(person);
 });
 
 router.post('/login', function(req, res) {
